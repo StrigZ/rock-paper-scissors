@@ -21,21 +21,21 @@ const playGame = () => {
     switch (humanChoice) {
       case computerChoice:
         console.log("TIE");
-        console.log(`Computer: ${computerChoice}, you: ${humanChoice}`);
+        console.log(`Computer: ${computerChoice}, You: ${humanChoice}`);
         break;
       case "rock":
         console.log(computerChoice === "paper" ? "You Lose." : "You Won.");
-        console.log(`Computer: ${computerChoice}, you: ${humanChoice}`);
+        console.log(`Computer: ${computerChoice}, You: ${humanChoice}`);
         computerChoice === "paper" ? computerScore++ : humanScore++;
         break;
       case "scissors":
         console.log(computerChoice === "rock" ? "You Lose." : "You Won.");
-        console.log(`Computer: ${computerChoice}, you: ${humanChoice}`);
+        console.log(`Computer: ${computerChoice}, You: ${humanChoice}`);
         computerChoice === "rock" ? computerScore++ : humanScore++;
         break;
       case "paper":
         console.log(computerChoice === "scissors" ? "You Lose." : "You Won.");
-        console.log(`Computer: ${computerChoice}, you: ${humanChoice}`);
+        console.log(`Computer: ${computerChoice}, You: ${humanChoice}`);
         computerChoice === "scissors" ? computerScore++ : humanScore++;
         break;
 
