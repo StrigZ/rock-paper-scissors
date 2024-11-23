@@ -18,30 +18,29 @@ const playGame = () => {
   let humanScore = 0;
 
   const playRound = (computerChoice, humanChoice) => {
-    if (computerChoice === humanChoice) {
-      console.log("TIE");
-      console.log(`Computer: ${computerChoice}, you: ${humanChoice}`);
-    } else if (
-      (computerChoice === "rock" || humanChoice === "rock") &&
-      (humanChoice === "paper" || computerChoice === "paper")
-    ) {
-      console.log(computerChoice === "rock" ? "You Won." : "You Lose.");
-      console.log(`Computer: ${computerChoice}, you: ${humanChoice}`);
-      return computerChoice === "rock" ? humanChoice++ : computerScore++;
-    } else if (
-      (computerChoice === "rock" || humanChoice === "rock") &&
-      (humanChoice === "scissors" || computerChoice === "scissors")
-    ) {
-      console.log(computerChoice === "rock" ? "You Lose." : "You Won.");
-      console.log(`Computer: ${computerChoice}, you: ${humanChoice}`);
-      return computerChoice === "rock" ? computerScore++ : humanScore++;
-    } else if (
-      (computerChoice === "paper" || humanChoice === "paper") &&
-      (humanChoice === "scissors" || computerChoice === "scissors")
-    ) {
-      console.log(computerChoice === "paper" ? "You Won." : "You Lose.");
-      console.log(`Computer: ${computerChoice}, you: ${humanChoice}`);
-      return computerChoice === "paper" ? humanScore++ : computerScore++;
+    switch (humanChoice) {
+      case computerChoice:
+        console.log("TIE");
+        console.log(`Computer: ${computerChoice}, you: ${humanChoice}`);
+        break;
+      case "rock":
+        console.log(computerChoice === "paper" ? "You Lose." : "You Won.");
+        console.log(`Computer: ${computerChoice}, you: ${humanChoice}`);
+        computerChoice === "paper" ? computerScore++ : humanScore++;
+        break;
+      case "scissors":
+        console.log(computerChoice === "rock" ? "You Lose." : "You Won.");
+        console.log(`Computer: ${computerChoice}, you: ${humanChoice}`);
+        computerChoice === "rock" ? computerScore++ : humanScore++;
+        break;
+      case "paper":
+        console.log(computerChoice === "scissors" ? "You Lose." : "You Won.");
+        console.log(`Computer: ${computerChoice}, you: ${humanChoice}`);
+        computerChoice === "scissors" ? computerScore++ : humanScore++;
+        break;
+
+      default:
+        break;
     }
   };
 
